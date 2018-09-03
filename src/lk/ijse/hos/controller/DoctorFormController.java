@@ -123,7 +123,18 @@ public class DoctorFormController implements Initializable {
 
     @FXML
     private void BtnSaveOnAction(ActionEvent event) {
-        
+        if(decide){
+            saveDoctor();
+            loadAllDoctors();
+            
+        }else if (tblDocas.getSelectionModel().getSelectedIndex()>=0 && decide == false) {
+            updateDoctors();
+            loadAllDoctors();
+            
+        }
+        else{
+            new Alert(Alert.AlertType.WARNING, "Please Press The Add new Doctor* Button to add a Doctor", ButtonType.OK).show();
+        }   
     }
 
     
