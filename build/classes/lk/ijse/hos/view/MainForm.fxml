@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="448.0" prefWidth="751.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="lk.ijse.hos.controller.MainFormController">
+    <stylesheets>
+        <URL value="@/lk/ijse/hos/view/style/mainform.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="275.0" layoutY="31.0" prefHeight="16.0" prefWidth="296.0" text="Hospital Management System" />
+      <ImageView fx:id="imgDoc" fitHeight="146.0" fitWidth="139.0" layoutX="27.0" layoutY="134.0" onMouseClicked="#OnMouseClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assest/doctor%20(2).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgPatient" fitHeight="146.0" fitWidth="139.0" layoutX="385.0" layoutY="134.0" onMouseClicked="#OnMouseClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assest/patient.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgReport" fitHeight="146.0" fitWidth="139.0" layoutX="583.0" layoutY="134.0" onMouseClicked="#OnMouseClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assest/clipboard%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgAppointment" fitHeight="146.0" fitWidth="139.0" layoutX="212.0" layoutY="134.0" onMouseClicked="#OnMouseClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assest/blood.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="54.0" layoutY="311.0" prefHeight="16.0" prefWidth="99.0" text="Manage Doctor" />
+      <Label layoutX="244.0" layoutY="319.0" prefHeight="16.0" prefWidth="99.0" text="Manage Appointments" />
+      <Label layoutX="405.0" layoutY="311.0" prefHeight="16.0" prefWidth="99.0" text="Manage patients" />
+      <Label layoutX="603.0" layoutY="311.0" prefHeight="16.0" prefWidth="99.0" text="Manage Reports" />
+   </children>
+</AnchorPane>

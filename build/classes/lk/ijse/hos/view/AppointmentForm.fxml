@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="522.0" prefWidth="676.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="lk.ijse.hos.controller.AppointmentFormController">
+    <stylesheets>
+        <URL value="@/lk/ijse/hos/view/style/appointmentform.css" />
+    </stylesheets>
+   <children>
+      <JFXTextField labelFloat="true" layoutX="31.0" layoutY="187.0" prefHeight="37.0" prefWidth="254.0" text="Appointment ID" />
+      <JFXTextField labelFloat="true" layoutX="31.0" layoutY="243.0" prefHeight="37.0" prefWidth="254.0" text="Doctor ID" />
+      <JFXTextField labelFloat="true" layoutX="31.0" layoutY="296.0" prefHeight="37.0" prefWidth="254.0" text="Patient ID" />
+      <JFXTextField labelFloat="true" layoutX="31.0" layoutY="354.0" prefHeight="37.0" prefWidth="254.0" text="Date" />
+      <JFXButton layoutX="338.0" layoutY="354.0" prefHeight="37.0" prefWidth="132.0" text="Make Appointment" />
+      <JFXButton layoutX="499.0" layoutY="354.0" prefHeight="37.0" prefWidth="132.0" text="Cancel" />
+      <Label layoutX="262.0" layoutY="76.0" prefHeight="3.0" prefWidth="197.0" text="Appointments" />
+   </children>
+</AnchorPane>
