@@ -22,9 +22,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -42,8 +44,6 @@ import lk.ijse.hos.view.util.tblmodel.DoctorTM;
  */
 public class DoctorFormController implements Initializable {
 
-    @FXML
-    private Label imgHome;
     @FXML
     private AnchorPane root;
     @FXML
@@ -71,16 +71,24 @@ public class DoctorFormController implements Initializable {
     private JFXButton btnCancel;
     @FXML
     private JFXButton btnDelete;
+    @FXML
+    private ImageView navigateHome;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+     
+        tblDocas.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("Doctor_ID"));
+        tblDocas.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("Doctor_Name"));
+        tblDocas.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("Address"));
+        tblDocas.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("Specialized_IN"));
+        tblDocas.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("Salary"));
+        loadAllDoctors();
+        
     }    
 
-    @FXML
     private void GotoHome(MouseEvent event) throws IOException {
                   if (event.getSource() instanceof ImageView) {
             ImageView img = (ImageView) event.getSource();
@@ -237,7 +245,12 @@ private void updateDoctors(){
 
     @FXML
     private void btnCancelOnAction(ActionEvent event) {
-        
+           decide = true;
+        txtDocid.setText("");
+        txtDocName.setText("");
+        txtDocAddress.setText("");
+        txtDocSpecial.setText("");
+        txtDocSalary.setText("");
     
         
     }
@@ -250,6 +263,33 @@ private void updateDoctors(){
             
         }else{
             new Alert(Alert.AlertType.ERROR, "Please Select a Doctor to Delete", ButtonType.OK).show();
+        }
+        
+    }
+
+    @FXML
+    private void OnHomeImgClick(MouseEvent event) throws IOException {
+        if (event.getSource() instanceof ImageView) {
+            ImageView img = (ImageView) event.getSource();
+            Parent root = null;
+            switch (img.getId()) {
+                case "navigateHome":
+                    root = FXMLLoader.load(this.getClass().getResource("/lk/ijse/hos/view/MainForm.fxml"));
+                    break;
+    }
+            if (root != null) {
+                Scene subScene = new Scene(root);
+                Stage primaryStage = (Stage) this.root.getScene().getWindow();
+                primaryStage.setScene(subScene);
+                primaryStage.centerOnScreen();
+                 primaryStage.show();
+                TranslateTransition tt = new TranslateTransition(Duration.millis(350), subScene.getRoot());
+                tt.setFromX(-subScene.getWidth());
+                tt.setToX(0);
+                tt.play();
+
+            }
+
         }
         
     }

@@ -19,16 +19,10 @@
       <JFXTextField fx:id="txtDocAddress" labelFloat="true" layoutX="44.0" layoutY="185.0" prefHeight="8.0" prefWidth="211.0" promptText="Address" />
       <JFXTextField fx:id="txtDocSpecial" labelFloat="true" layoutX="44.0" layoutY="229.0" prefHeight="18.0" prefWidth="211.0" promptText="Specialized In" />
       <JFXTextField fx:id="txtDocSalary" labelFloat="true" layoutX="44.0" layoutY="277.0" prefHeight="18.0" prefWidth="211.0" promptText="Salary" />
-      <JFXTextField fx:id="txtDocid" labelFloat="true" layoutX="44.0" layoutY="101.0" prefHeight="28.0" prefWidth="233.0" promptText="Doctor ID" />
+      <JFXTextField fx:id="txtDocid" labelFloat="true" layoutX="44.0" layoutY="87.0" prefHeight="28.0" prefWidth="233.0" promptText="Doctor ID" />
       <Label layoutX="279.0" layoutY="28.0" prefHeight="16.0" prefWidth="106.0" text="Manage Doctors" />
-      <JFXButton fx:id="btnSave" layoutX="323.0" layoutY="284.0" onAction="#BtnSaveOnAction" prefHeight="26.0" prefWidth="138.0" text="Save" />
-      <JFXButton layoutX="482.0" layoutY="284.0" prefHeight="26.0" prefWidth="138.0" text="Cancel" />
-      <ImageView fitHeight="74.0" fitWidth="81.0" layoutX="538.0" onMouseClicked="#GotoHome" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assest/icons8-home-96.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="imgHome" layoutX="551.0" layoutY="65.0" prefHeight="18.0" prefWidth="43.0" text="Home" />
+      <JFXButton fx:id="btnSave" layoutX="263.0" layoutY="319.0" onAction="#BtnSaveOnAction" prefHeight="26.0" prefWidth="138.0" text="Save/Update" />
+      <JFXButton fx:id="btnCancel" layoutX="506.0" layoutY="319.0" onAction="#btnCancelOnAction" prefHeight="26.0" prefWidth="138.0" text="Cancel" />
       <JFXButton fx:id="BtnNewDoc" layoutX="316.0" layoutY="101.0" onAction="#NewDocbtnClick" prefHeight="26.0" prefWidth="138.0" text="New Doctor*" />
       <TableView fx:id="tblDocas" layoutY="356.0" prefHeight="218.0" prefWidth="663.0">
         <columns>
@@ -39,5 +33,11 @@
             <TableColumn prefWidth="138.0" text="Salary" />
         </columns>
       </TableView>
+      <JFXButton fx:id="btnDelete" layoutX="385.0" layoutY="319.0" onAction="#BtnDeleteOnAction" prefHeight="26.0" prefWidth="138.0" text="Delete" />
+      <ImageView fx:id="navigateHome" fitHeight="49.0" fitWidth="45.0" layoutX="604.0" layoutY="15.0" onMouseClicked="#OnHomeImgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assest/home-icon.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

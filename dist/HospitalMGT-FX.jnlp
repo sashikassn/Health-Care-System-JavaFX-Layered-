@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="HospitalMGT-FX.jar" size="5081937" download="eager" />
+    <jar href="HospitalMGT-FX.jar" size="5086664" download="eager" />
     <jar href="lib/jfoenix.jar" size="2401594" download="eager" />
     <jar href="lib/mysql-connector-java-5.1.42-bin.jar" size="996444" download="eager" />
   </resources>

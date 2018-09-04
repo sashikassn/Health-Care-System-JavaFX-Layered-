@@ -1,22 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="522.0" prefWidth="676.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="lk.ijse.hos.controller.AppointmentFormController">
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="522.0" prefWidth="676.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hos.controller.AppointmentFormController">
     <stylesheets>
         <URL value="@/lk/ijse/hos/view/style/appointmentform.css" />
     </stylesheets>
    <children>
-      <JFXTextField labelFloat="true" layoutX="31.0" layoutY="187.0" prefHeight="37.0" prefWidth="254.0" text="Appointment ID" />
-      <JFXTextField labelFloat="true" layoutX="31.0" layoutY="243.0" prefHeight="37.0" prefWidth="254.0" text="Doctor ID" />
-      <JFXTextField labelFloat="true" layoutX="31.0" layoutY="296.0" prefHeight="37.0" prefWidth="254.0" text="Patient ID" />
-      <JFXTextField labelFloat="true" layoutX="31.0" layoutY="354.0" prefHeight="37.0" prefWidth="254.0" text="Date" />
-      <JFXButton layoutX="338.0" layoutY="354.0" prefHeight="37.0" prefWidth="132.0" text="Make Appointment" />
-      <JFXButton layoutX="499.0" layoutY="354.0" prefHeight="37.0" prefWidth="132.0" text="Cancel" />
-      <Label layoutX="262.0" layoutY="76.0" prefHeight="3.0" prefWidth="197.0" text="Appointments" />
+      <JFXTextField fx:id="txtAppoID" labelFloat="true" layoutX="31.0" layoutY="88.0" prefHeight="27.0" prefWidth="254.0" promptText="Appointment ID" />
+      <JFXTextField fx:id="txtDocID" labelFloat="true" layoutX="31.0" layoutY="137.0" prefHeight="28.0" prefWidth="254.0" promptText="Doctor ID" />
+      <JFXTextField fx:id="txtpatientID" labelFloat="true" layoutX="31.0" layoutY="194.0" prefHeight="28.0" prefWidth="254.0" promptText="Patient ID" />
+      <JFXButton fx:id="btnMakeAppo" layoutX="338.0" layoutY="243.0" onAction="#OnMakeAppoClick" prefHeight="37.0" prefWidth="145.0" text="Make Appointment" />
+      <JFXButton fx:id="btnCancel" layoutX="499.0" layoutY="243.0" onAction="#OnBtnCancelClick" prefHeight="37.0" prefWidth="132.0" text="Cancel" />
+      <Label layoutX="273.0" layoutY="54.0" prefHeight="3.0" prefWidth="197.0" text="Appointments" />
+      <ImageView fx:id="navigateHome" fitHeight="60.0" fitWidth="58.0" layoutX="602.0" layoutY="14.0" onMouseClicked="#OnHomeImgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assest/home-icon.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tblAppointments" layoutY="293.0" prefHeight="229.0" prefWidth="676.0">
+        <columns>
+          <TableColumn prefWidth="205.0" text="Appointment ID" />
+            <TableColumn prefWidth="152.0" text="Doctor ID" />
+            <TableColumn prefWidth="156.0" text="Patient ID" />
+            <TableColumn prefWidth="162.0" text="Date" />
+        </columns>
+      </TableView>
+      <JFXDatePicker fx:id="DatePicker" layoutX="28.0" layoutY="247.0" prefHeight="28.0" prefWidth="260.0" />
    </children>
 </AnchorPane>

@@ -23,12 +23,6 @@
       <Label layoutX="279.0" layoutY="28.0" prefHeight="16.0" prefWidth="106.0" text="Manage Doctors" />
       <JFXButton fx:id="btnSave" layoutX="263.0" layoutY="319.0" onAction="#BtnSaveOnAction" prefHeight="26.0" prefWidth="138.0" text="Save/Update" />
       <JFXButton fx:id="btnCancel" layoutX="506.0" layoutY="319.0" onAction="#btnCancelOnAction" prefHeight="26.0" prefWidth="138.0" text="Cancel" />
-      <ImageView fitHeight="74.0" fitWidth="81.0" layoutX="538.0" onMouseClicked="#GotoHome" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assest/icons8-home-96.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="imgHome" layoutX="551.0" layoutY="65.0" prefHeight="18.0" prefWidth="43.0" text="Home" />
       <JFXButton fx:id="BtnNewDoc" layoutX="316.0" layoutY="101.0" onAction="#NewDocbtnClick" prefHeight="26.0" prefWidth="138.0" text="New Doctor*" />
       <TableView fx:id="tblDocas" layoutY="356.0" prefHeight="218.0" prefWidth="663.0">
         <columns>
@@ -40,5 +34,10 @@
         </columns>
       </TableView>
       <JFXButton fx:id="btnDelete" layoutX="385.0" layoutY="319.0" onAction="#BtnDeleteOnAction" prefHeight="26.0" prefWidth="138.0" text="Delete" />
+      <ImageView fx:id="navigateHome" fitHeight="49.0" fitWidth="45.0" layoutX="604.0" layoutY="15.0" onMouseClicked="#OnHomeImgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assest/home-icon.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
