@@ -31,7 +31,7 @@ public class StartUp extends Application{
             primaryStage.setTitle("Hospital Management System -JAVAFX Version Ver1.2");
             primaryStage.setScene(mainScene);
             primaryStage.setResizable(false);
-            
+            primaryStage.setMaximized(false);
             primaryStage.show();
            
 

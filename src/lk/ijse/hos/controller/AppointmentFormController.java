@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import static java.time.temporal.TemporalQueries.localDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -26,6 +25,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
@@ -66,6 +67,10 @@ public class AppointmentFormController implements Initializable {
     private AnchorPane root;
     @FXML
     private JFXDatePicker DatePicker;
+    
+    private boolean decide = false;
+    @FXML
+    private JFXButton btnNewAppo;
     /**
      * Initializes the controller class.
      */
@@ -75,17 +80,27 @@ public class AppointmentFormController implements Initializable {
         tblAppointments.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("Doctor_ID"));
         tblAppointments.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("Patient_ID"));
         tblAppointments.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("Date"));
-        
+        loadAppointments();
     }    
 
     @FXML
     private void OnMakeAppoClick(ActionEvent event) {
-        saveAppointments();
-        loadAppointments();
+  if(decide == true && !(tblAppointments.getSelectionModel().getSelectedIndex()>=0) ){
+            saveAppointments();
+            loadAppointments();
+        }else if(tblAppointments.getSelectionModel().getSelectedIndex()>=0 && decide ==false){
+            updateAppointments();
+            loadAppointments();
+        }
+        else{
+            new Alert(Alert.AlertType.WARNING, "Please press the Add new Button to add Item..", ButtonType.OK).show();
+        }
     }
 
     @FXML
     private void OnBtnCancelClick(ActionEvent event) {
+        decide= true;
+       
          txtAppoID.setText("");
            txtDocID.setText("");
            txtpatientID.setText("");
@@ -141,6 +156,8 @@ public class AppointmentFormController implements Initializable {
     
     private void saveAppointments(){
        
+            try{
+                
             
             String Appointment_ID = txtAppoID.getText();
             String Doctor_ID = txtDocID.getText();
@@ -156,7 +173,53 @@ public class AppointmentFormController implements Initializable {
         } catch (Exception ex) {
              Logger.getLogger(AppointmentFormController.class.getName()).log(Level.SEVERE, null, ex);
         }
+            AppointmentDTO appointmentDTO = new AppointmentDTO(Appointment_ID, Doctor_ID, Patient_ID, date);
             
             
+            Boolean result = appointmentBO.saveAppointment(appointmentDTO);
+            if(result){
+                new Alert(Alert.AlertType.INFORMATION, "Apointment Has been placed Successfully", ButtonType.OK).show();
+                
+            }else{
+                new Alert(Alert.AlertType.ERROR, "Failed to Save the Appointment", ButtonType.OK).show();
+                
+            }
+            }catch (Exception ex) {
+            Logger.getLogger(AppointmentFormController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+            
+            
+            
+    }
+    
+    private void updateAppointments(){
+        AppointmentTM selectAppo = tblAppointments.getSelectionModel().getSelectedItem();
+        String Appointment_ID = selectAppo.getAppointment_ID();
+        String Doctor_ID = selectAppo.getDoctor_ID();
+        String Patient_ID = selectAppo.getPatient_ID();
+        Date Date = selectAppo.getDate();
+        
+        AppointmentDTO appointmentDTO = new AppointmentDTO(Appointment_ID, Doctor_ID, Patient_ID, Date);
+        
+        try {
+            Boolean result = appointmentBO.updateAppointment(appointmentDTO);
+            if(result){
+                new Alert(Alert.AlertType.INFORMATION, "Appointment has been Updated successfully..", ButtonType.OK).show();
+            }else{
+                new Alert(Alert.AlertType.INFORMATION, "Error on update Appointment...", ButtonType.OK).show();
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(AppointmentFormController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+
+    @FXML
+    private void OnNewAppoClick(ActionEvent event) {
+               decide = true;
+        txtAppoID.setText("");
+           txtDocID.setText("");
+           txtpatientID.setText("");
+           txtDate.setText("");
+           tblAppointments.getSelectionModel().clearSelection();
     }
 }

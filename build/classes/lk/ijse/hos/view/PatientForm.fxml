@@ -3,21 +3,38 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="lk.ijse.hos.controller.PatientFormController">
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="500.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hos.controller.PatientFormController">
     <stylesheets>
         <URL value="@/lk/ijse/hos/view/style/patientform.css" />
     </stylesheets>
    <children>
-      <JFXTextField layoutX="54.0" layoutY="123.0" prefHeight="43.0" prefWidth="211.0" text="Patient Name" />
-      <JFXTextField layoutX="48.0" layoutY="179.0" prefHeight="43.0" prefWidth="211.0" text="Patient Age" />
-      <JFXTextField layoutX="48.0" layoutY="240.0" prefHeight="43.0" prefWidth="211.0" text="Patient Gender" />
-      <JFXTextField labelFloat="true" layoutX="54.0" layoutY="66.0" prefHeight="43.0" prefWidth="211.0" promptText="Patient ID" />
-      <JFXTextField layoutX="48.0" layoutY="309.0" prefHeight="43.0" prefWidth="211.0" text="Patient Address" />
-      <JFXButton layoutX="347.0" layoutY="318.0" prefHeight="26.0" prefWidth="84.0" text="Save" />
-      <JFXButton layoutX="461.0" layoutY="318.0" prefHeight="26.0" prefWidth="84.0" text="Cancel" />
-      <Button layoutX="465.0" layoutY="29.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" text="Back" />
+      <JFXTextField fx:id="txtpatientName" labelFloat="true" layoutX="54.0" layoutY="105.0" prefHeight="28.0" prefWidth="211.0" promptText="Patient Name" />
+      <JFXTextField fx:id="txtpatientAge" labelFloat="true" layoutX="54.0" layoutY="160.0" prefHeight="20.0" prefWidth="211.0" promptText="Patient Age" />
+      <JFXTextField fx:id="txtGender" labelFloat="true" layoutX="54.0" layoutY="206.0" prefHeight="28.0" prefWidth="211.0" promptText="Patient Gender" />
+      <JFXTextField fx:id="txtpatientID" labelFloat="true" layoutX="54.0" layoutY="57.0" prefHeight="28.0" prefWidth="211.0" promptText="Patient ID" />
+      <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="54.0" layoutY="256.0" prefHeight="28.0" prefWidth="211.0" promptText="Patient Address" />
+      <JFXButton fx:id="btnSave" layoutX="329.0" layoutY="263.0" onAction="#OnSavebtnClick" prefHeight="26.0" prefWidth="84.0" text="Save" />
+      <JFXButton fx:id="btnCancel" layoutX="436.0" layoutY="263.0" onAction="#OnCancelBtnClick" prefHeight="26.0" prefWidth="84.0" text="Cancel" />
+      <ImageView fx:id="navigateHome" fitHeight="55.0" fitWidth="61.0" layoutX="531.0" layoutY="14.0" onMouseClicked="#onHomeimgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assest/home-icon.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="btnNewPatient" layoutX="313.0" layoutY="57.0" onAction="#OnNewPatientBtnClick" prefHeight="28.0" prefWidth="115.0" text="New Patient" />
+      <TableView fx:id="tblPatients" layoutY="300.0" prefHeight="200.0" prefWidth="600.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Patient ID" />
+          <TableColumn prefWidth="128.0" text="Patient Name" />
+            <TableColumn prefWidth="128.0" text="Patient Age" />
+            <TableColumn prefWidth="144.0" text="Patient Gender" />
+            <TableColumn prefWidth="124.0" text="Patient Address" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

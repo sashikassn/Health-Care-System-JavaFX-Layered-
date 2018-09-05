@@ -36,5 +36,6 @@
         </columns>
       </TableView>
       <JFXDatePicker fx:id="DatePicker" layoutX="28.0" layoutY="247.0" prefHeight="28.0" prefWidth="260.0" />
+      <JFXButton fx:id="btnNewAppo" layoutX="338.0" layoutY="84.0" onAction="#OnNewAppoClick" prefHeight="37.0" prefWidth="221.0" text="New Appointment" />
    </children>
 </AnchorPane>
