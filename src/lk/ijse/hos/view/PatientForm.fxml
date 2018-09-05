@@ -9,7 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" fx:id="root" prefHeight="500.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hos.controller.PatientFormController">
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="500.0" prefWidth="694.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hos.controller.PatientFormController">
     <stylesheets>
         <URL value="@/lk/ijse/hos/view/style/patientform.css" />
     </stylesheets>
@@ -21,19 +21,19 @@
       <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="54.0" layoutY="256.0" prefHeight="28.0" prefWidth="211.0" promptText="Patient Address" />
       <JFXButton fx:id="btnSave" layoutX="329.0" layoutY="263.0" onAction="#OnSavebtnClick" prefHeight="26.0" prefWidth="84.0" text="Save" />
       <JFXButton fx:id="btnCancel" layoutX="436.0" layoutY="263.0" onAction="#OnCancelBtnClick" prefHeight="26.0" prefWidth="84.0" text="Cancel" />
-      <ImageView fx:id="navigateHome" fitHeight="55.0" fitWidth="61.0" layoutX="531.0" layoutY="14.0" onMouseClicked="#onHomeimgClick" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="navigateHome" fitHeight="55.0" fitWidth="61.0" layoutX="625.0" layoutY="14.0" onMouseClicked="#onHomeimgClick" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assest/home-icon.png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="btnNewPatient" layoutX="313.0" layoutY="57.0" onAction="#OnNewPatientBtnClick" prefHeight="28.0" prefWidth="115.0" text="New Patient" />
-      <TableView fx:id="tblPatients" layoutY="300.0" prefHeight="200.0" prefWidth="600.0">
+      <JFXButton fx:id="btnNewPatient" layoutX="290.0" layoutY="71.0" onAction="#OnNewPatientBtnClick" prefHeight="28.0" prefWidth="115.0" text="New Patient*" />
+      <TableView fx:id="tblPatients" layoutY="300.0" prefHeight="200.0" prefWidth="694.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Patient ID" />
-          <TableColumn prefWidth="128.0" text="Patient Name" />
-            <TableColumn prefWidth="128.0" text="Patient Age" />
-            <TableColumn prefWidth="144.0" text="Patient Gender" />
-            <TableColumn prefWidth="124.0" text="Patient Address" />
+          <TableColumn prefWidth="100.0" text="Patient ID" />
+          <TableColumn prefWidth="130.0" text="Patient Name" />
+            <TableColumn prefWidth="134.0" text="Patient Age" />
+            <TableColumn prefWidth="153.0" text="Patient Gender" />
+            <TableColumn prefWidth="176.0" text="Patient Address" />
         </columns>
       </TableView>
    </children>

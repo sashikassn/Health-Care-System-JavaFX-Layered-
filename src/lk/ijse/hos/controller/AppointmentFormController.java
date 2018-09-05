@@ -10,6 +10,7 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -162,16 +163,12 @@ public class AppointmentFormController implements Initializable {
             String Appointment_ID = txtAppoID.getText();
             String Doctor_ID = txtDocID.getText();
             String Patient_ID = txtpatientID.getText();
-            LocalDate Date = DatePicker.getValue();
-            
-            Date date = new Date();
-            
-            try {
-            
-                date = new SimpleDateFormat("yyyy-MM-dd").parse(Date.toString());
-                     
-        } catch (Exception ex) {
-             Logger.getLogger(AppointmentFormController.class.getName()).log(Level.SEVERE, null, ex);
+        LocalDate localDate = DatePicker.getValue();
+        Date date = new Date();
+        try {
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(localDate.toString());
+        } catch (ParseException ex) {
+            Logger.getLogger(AppointmentFormController.class.getName()).log(Level.SEVERE, null, ex);
         }
             AppointmentDTO appointmentDTO = new AppointmentDTO(Appointment_ID, Doctor_ID, Patient_ID, date);
             
@@ -215,11 +212,11 @@ public class AppointmentFormController implements Initializable {
 
     @FXML
     private void OnNewAppoClick(ActionEvent event) {
-               decide = true;
-        txtAppoID.setText("");
+            decide = true;
+            txtAppoID.setText("");
            txtDocID.setText("");
            txtpatientID.setText("");
-           txtDate.setText("");
+           
            tblAppointments.getSelectionModel().clearSelection();
     }
 }

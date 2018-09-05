@@ -5,6 +5,7 @@
  */
 package lk.ijse.hos.dto;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -27,6 +28,7 @@ public class AppointmentDTO {
         this.Date = Date;
     }
 
+ 
     /**
      * @return the Appointment_ID
      */
