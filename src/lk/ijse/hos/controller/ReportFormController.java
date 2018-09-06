@@ -75,7 +75,7 @@ public class ReportFormController implements Initializable {
     @FXML
     private TableView<ReportTM> tblReports;
     
-    private ReportBO reportBO = (ReportBO)BOFactory.getInstace().getBO(BOFactory.BOType.ReportBO);
+    ReportBO reportBO = (ReportBO)BOFactory.getInstace().getBO(BOFactory.BOType.ReportBO);
     @FXML
     private AnchorPane root;
     @FXML
@@ -84,6 +84,8 @@ public class ReportFormController implements Initializable {
     /**
      * Initializes the controller class.
      */
+  
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         tblReports.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("Report_ID"));
@@ -206,9 +208,11 @@ public class ReportFormController implements Initializable {
         }
     }
 
-    @FXML
-    private void CmbAppointmentIDOnload(ActionEvent event) {
-        
+               
+
+       
     }
     
-}
+   
+    
+

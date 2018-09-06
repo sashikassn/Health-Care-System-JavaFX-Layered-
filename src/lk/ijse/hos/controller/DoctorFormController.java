@@ -293,4 +293,15 @@ private void updateDoctors(){
         }
         
     }
+
+    @FXML
+    private void OnMouseClickAction(MouseEvent event) {
+        txtDocid.setText(tblDocas.getSelectionModel().getSelectedItem().getDoctor_ID());
+        txtDocName.setText(tblDocas.getSelectionModel().getSelectedItem().getDoctor_Name());
+        txtDocAddress.setText(tblDocas.getSelectionModel().getSelectedItem().getAddress());
+        txtDocSpecial.setText(tblDocas.getSelectionModel().getSelectedItem().getSpecialized_IN());
+        txtDocSalary.setText(tblDocas.getSelectionModel().getSelectedItem().getSalary().toString());
+        
+        
+    }
 }
