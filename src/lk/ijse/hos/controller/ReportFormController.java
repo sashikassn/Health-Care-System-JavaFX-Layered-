@@ -78,8 +78,7 @@ public class ReportFormController implements Initializable {
     ReportBO reportBO = (ReportBO)BOFactory.getInstace().getBO(BOFactory.BOType.ReportBO);
     @FXML
     private AnchorPane root;
-    @FXML
-    private JFXComboBox<?> cmbAppointmentID;
+   
 
     /**
      * Initializes the controller class.
@@ -94,6 +93,7 @@ public class ReportFormController implements Initializable {
         tblReports.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("Date"));
         tblReports.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("Details"));
         tblReports.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("Treatments"));
+        loadReports();
     }    
 
     @FXML
@@ -105,6 +105,12 @@ public class ReportFormController implements Initializable {
 
     @FXML
     private void onCancelBtnClick(ActionEvent event) {
+        txtReprtID.setText("");
+        txtAppointmentID.setText("");
+        txtPatientID.setText("");
+        txtDetails.setText("");
+        txtTreatments.setText("");
+        
         
     }
 

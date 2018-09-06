@@ -24,7 +24,7 @@ public class StartUp extends Application{
     public void start(Stage primaryStage) throws Exception {
          try {
 
-            Parent root = FXMLLoader.load(this.getClass().getResource("/lk/ijse/hos/view/MainForm.fxml"));
+            Parent root = FXMLLoader.load(this.getClass().getResource("/lk/ijse/hos/view/LoginForm.fxml"));
 
             Scene mainScene = new Scene(root);
 

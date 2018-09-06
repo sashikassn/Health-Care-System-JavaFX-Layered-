@@ -80,6 +80,7 @@ public class MainFormController implements Initializable {
                 tt.play();
                 
             }
+            
         }
         
     }

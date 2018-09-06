@@ -27,7 +27,7 @@
             <Image url="@../assest/home-icon.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tblAppointments" layoutY="293.0" prefHeight="229.0" prefWidth="676.0">
+      <TableView fx:id="tblAppointments" layoutY="293.0" onMouseClicked="#onTableClick" prefHeight="229.0" prefWidth="676.0">
         <columns>
           <TableColumn prefWidth="205.0" text="Appointment ID" />
             <TableColumn prefWidth="152.0" text="Doctor ID" />

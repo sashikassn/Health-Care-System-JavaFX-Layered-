@@ -12,7 +12,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -105,7 +107,7 @@ public class AppointmentFormController implements Initializable {
          txtAppoID.setText("");
            txtDocID.setText("");
            txtpatientID.setText("");
-           txtDate.setText("");
+           
            tblAppointments.getSelectionModel().clearSelection();
         
     }
@@ -216,7 +218,20 @@ public class AppointmentFormController implements Initializable {
             txtAppoID.setText("");
            txtDocID.setText("");
            txtpatientID.setText("");
-           
+           DatePicker.setValue(null);
            tblAppointments.getSelectionModel().clearSelection();
+    }
+
+    @FXML
+    private void onTableClick(MouseEvent event) {
+          txtAppoID.setText(tblAppointments.getSelectionModel().getSelectedItem().getAppointment_ID());
+            txtDocID.setText(tblAppointments.getSelectionModel().getSelectedItem().getDoctor_ID());
+        txtpatientID.setText(tblAppointments.getSelectionModel().getSelectedItem().getPatient_ID());
+          Date date = tblAppointments.getSelectionModel().getSelectedItem().getDate();
+          LocalDate localDate = Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+          
+          DatePicker.setValue(localDate);
+        
+       
     }
 }
