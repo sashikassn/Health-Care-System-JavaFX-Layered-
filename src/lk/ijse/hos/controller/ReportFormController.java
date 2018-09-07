@@ -116,7 +116,11 @@ public class ReportFormController implements Initializable {
 
     @FXML
     private void onNewReportbtnClick(ActionEvent event) {
-        
+           txtReprtID.setText("");
+        txtAppointmentID.setText("");
+        txtPatientID.setText("");
+        txtDetails.setText("");
+        txtTreatments.setText("");
     }
 
     @FXML
@@ -153,6 +157,7 @@ public class ReportFormController implements Initializable {
 
     @FXML
     private void onDeletebtnClick(ActionEvent event) {
+        
     }
     
     
@@ -215,7 +220,8 @@ public class ReportFormController implements Initializable {
     }
 
                
-
+private void deleteReports(){
+}
        
     }
     

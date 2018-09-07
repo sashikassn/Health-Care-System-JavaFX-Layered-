@@ -23,6 +23,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.SortEvent;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
@@ -213,4 +214,17 @@ public class PatientFormController implements Initializable {
         }
 
     }
+
+    @FXML
+    private void onTblrawClick(MouseEvent event) {
+                txtpatientID.setText(tblPatients.getSelectionModel().getSelectedItem().getPatient_ID());
+        txtpatientName.setText(tblPatients.getSelectionModel().getSelectedItem().getPatient_NAME());
+//       txtpatientAge.setText(tblPatients.getSelectionModel().getSelectedItem().getPatient_AGE());
+        txtGender.setText(tblPatients.getSelectionModel().getSelectedItem().getPatient_Gender());
+        txtAddress.setText(tblPatients.getSelectionModel().getSelectedItem().getPatient_Address());
+        
+        
+    }
+
+   
 }

@@ -139,6 +139,7 @@ public class DoctorFormController implements Initializable {
             updateDoctors();
             loadAllDoctors();
             
+            
         }
         else{
             new Alert(Alert.AlertType.WARNING, "Please Press The Add new Doctor* Button to add a Doctor", ButtonType.OK).show();

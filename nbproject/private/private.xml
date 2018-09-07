@@ -5,8 +5,12 @@
         <group>
             <file>file:/home/slash/NetBeansProjects/HospitalMGT-FX/src/lk/ijse/hos/controller/MainFormController.java</file>
             <file>file:/home/slash/NetBeansProjects/HospitalMGT-FX/src/lk/ijse/hos/business/custom/DoctorBO.java</file>
+            <file>file:/home/slash/NetBeansProjects/HospitalMGT-FX/src/lk/ijse/hos/view/style/loginform.css</file>
             <file>file:/home/slash/NetBeansProjects/HospitalMGT-FX/src/lk/ijse/hos/business/custom/impl/DoctorBOImpl.java</file>
+            <file>file:/home/slash/NetBeansProjects/HospitalMGT-FX/src/lk/ijse/hos/view/LoginForm.fxml</file>
             <file>file:/home/slash/NetBeansProjects/HospitalMGT-FX/src/lk/ijse/hos/controller/ReportFormController.java</file>
+            <file>file:/home/slash/NetBeansProjects/HospitalMGT-FX/src/lk/ijse/hos/controller/LoginFormController.java</file>
+            <file>file:/home/slash/NetBeansProjects/HospitalMGT-FX/src/lk/ijse/hos/main/StartUp.java</file>
             <file>file:/home/slash/NetBeansProjects/HospitalMGT-FX/src/lk/ijse/hos/controller/AppointmentFormController.java</file>
             <file>file:/home/slash/NetBeansProjects/HospitalMGT-FX/src/lk/ijse/hos/controller/PatientFormController.java</file>
             <file>file:/home/slash/NetBeansProjects/HospitalMGT-FX/src/lk/ijse/hos/controller/DoctorFormController.java</file>
