@@ -34,6 +34,7 @@ import javafx.util.Duration;
 import lk.ijse.hos.business.BOFactory;
 import lk.ijse.hos.business.custom.PatientBO;
 import lk.ijse.hos.dto.PatientDTO;
+import lk.ijse.hos.view.util.tblmodel.DoctorTM;
 import lk.ijse.hos.view.util.tblmodel.PatientTM;
 
 /**
@@ -74,6 +75,8 @@ public class PatientFormController implements Initializable {
     private ArrayList<PatientTM> patietTbladd = new ArrayList<>();
     @FXML
     private AnchorPane root;
+    @FXML
+    private JFXButton btnDelete;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -217,14 +220,47 @@ public class PatientFormController implements Initializable {
 
     @FXML
     private void onTblrawClick(MouseEvent event) {
-                txtpatientID.setText(tblPatients.getSelectionModel().getSelectedItem().getPatient_ID());
+        txtpatientID.setText(tblPatients.getSelectionModel().getSelectedItem().getPatient_ID());
         txtpatientName.setText(tblPatients.getSelectionModel().getSelectedItem().getPatient_NAME());
-//       txtpatientAge.setText(tblPatients.getSelectionModel().getSelectedItem().getPatient_AGE());
+        int x = tblPatients.getSelectionModel().getSelectedItem().getPatient_AGE();
+        txtpatientAge.setText(Integer.toString(x));
         txtGender.setText(tblPatients.getSelectionModel().getSelectedItem().getPatient_Gender());
         txtAddress.setText(tblPatients.getSelectionModel().getSelectedItem().getPatient_Address());
+
+    }
+
+    @FXML
+    private void OnDeleteBtnClick(ActionEvent event) {
+         if(tblPatients.getSelectionModel().getSelectedIndex()>=0){
+            deletePatient();
+            loadAllpatients();
+            
+        }else{
+            new Alert(Alert.AlertType.ERROR, "Please Select a Patient to Delete", ButtonType.OK).show();
+        }
         
         
     }
 
-   
+    
+    
+    private void deletePatient(){
+        PatientTM patient = tblPatients.getSelectionModel().getSelectedItem();
+            String id = patient.getPatient_ID();
+            
+            
+            try {
+               Boolean result = patientBO.deletePatient(id);
+               if(result){
+                   new Alert(Alert.AlertType.INFORMATION, "Patient Has been Deleted Successfully", ButtonType.OK).show();
+                   
+               }else{
+                   new Alert(Alert.AlertType.ERROR, "patient Delete Failed!", ButtonType.OK).show();
+                   
+               }
+              
+            } catch (Exception ex) {
+                Logger.getLogger(PatientFormController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
 }

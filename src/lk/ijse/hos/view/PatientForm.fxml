@@ -20,7 +20,7 @@
       <JFXTextField fx:id="txtpatientID" labelFloat="true" layoutX="54.0" layoutY="57.0" prefHeight="28.0" prefWidth="211.0" promptText="Patient ID" />
       <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="54.0" layoutY="256.0" prefHeight="28.0" prefWidth="211.0" promptText="Patient Address" />
       <JFXButton fx:id="btnSave" layoutX="329.0" layoutY="263.0" onAction="#OnSavebtnClick" prefHeight="26.0" prefWidth="84.0" text="Save" />
-      <JFXButton fx:id="btnCancel" layoutX="436.0" layoutY="263.0" onAction="#OnCancelBtnClick" prefHeight="26.0" prefWidth="84.0" text="Cancel" />
+      <JFXButton fx:id="btnCancel" layoutX="518.0" layoutY="263.0" onAction="#OnCancelBtnClick" prefHeight="26.0" prefWidth="84.0" text="Cancel" />
       <ImageView fx:id="navigateHome" fitHeight="55.0" fitWidth="61.0" layoutX="625.0" layoutY="14.0" onMouseClicked="#onHomeimgClick" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assest/home-icon.png" />
@@ -36,5 +36,6 @@
             <TableColumn prefWidth="176.0" text="Patient Address" />
         </columns>
       </TableView>
+      <JFXButton fx:id="btnDelete" layoutX="413.0" layoutY="263.0" onAction="#OnDeleteBtnClick" prefHeight="26.0" prefWidth="84.0" text="Delete" />
    </children>
 </AnchorPane>

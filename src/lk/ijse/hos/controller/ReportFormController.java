@@ -11,6 +11,7 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -36,10 +37,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import lk.ijse.hos.business.BOFactory;
+import lk.ijse.hos.business.custom.AppointmentBO;
 import lk.ijse.hos.business.custom.ReportBO;
 import lk.ijse.hos.dto.AppointmentDTO;
 import lk.ijse.hos.dto.ReportDTO;
-import lk.ijse.hos.view.util.tblmodel.AppointmentTM;
 import lk.ijse.hos.view.util.tblmodel.ReportTM;
 
 /**
@@ -59,6 +60,7 @@ public class ReportFormController implements Initializable {
     private JFXButton btnGenerateReport;
     @FXML
     private JFXButton btnDeleteReport;
+    @FXML
     private JFXTextField txtAppointmentID;
     @FXML
     private JFXTextField txtPatientID;
@@ -78,6 +80,10 @@ public class ReportFormController implements Initializable {
     ReportBO reportBO = (ReportBO)BOFactory.getInstace().getBO(BOFactory.BOType.ReportBO);
     @FXML
     private AnchorPane root;
+    @FXML
+    private JFXComboBox<String> cmbAppointmentID;
+    
+    AppointmentBO appointmentBO = (AppointmentBO) BOFactory.getInstace().getBO(BOFactory.BOType.AppointmentBO);
    
 
     /**
@@ -94,6 +100,8 @@ public class ReportFormController implements Initializable {
         tblReports.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("Details"));
         tblReports.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("Treatments"));
         loadReports();
+        loadAppointments();
+        
     }    
 
     @FXML
@@ -163,44 +171,38 @@ public class ReportFormController implements Initializable {
     
     
     private void saveReports(){
+               try{
+                
+            
+                    String Report_ID = txtReprtID.getText();
+                    String Appointment_ID = txtAppointmentID.getText();
+                    String Patient_ID = txtPatientID.getText();
+                    LocalDate Date = Datepicker.getValue();
+                    String Details = txtDetails.getText();
+                    String Treatments = txtTreatments.getText();
+                   
+        
+        Date date = new Date();
         try {
-            String Report_ID = txtReprtID.getText();
-            String Appointment_ID = txtAppointmentID.getText();
-            String Patient_ID = txtPatientID.getText();
-            LocalDate Date = Datepicker.getValue();
-            
-            Date date = new Date();
-            
-            try {
-                
-                date = new SimpleDateFormat("yyyy-MM-dd").parse(Date.toString());
-                
-            } catch (Exception ex) {
-                Logger.getLogger(ReportFormController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-            
-            String Details = txtDetails.getText();
-            String Treatments = txtTreatments.getText();
-            
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(Date.toString());
+        } catch (ParseException ex) {
+            Logger.getLogger(AppointmentFormController.class.getName()).log(Level.SEVERE, null, ex);
+        }
             ReportDTO reportDTO = new ReportDTO(Report_ID, Appointment_ID, Patient_ID, date, Details, Treatments);
             
             
-            Boolean result = reportBO.saveReport(reportDTO);
             
+            Boolean result = reportBO.saveReport(reportDTO);
             if(result){
-                new Alert(Alert.AlertType.INFORMATION, "Report Has been Recoreded Successfully", ButtonType.OK).show();
+                new Alert(Alert.AlertType.INFORMATION, "Report Has been Saved Successfully", ButtonType.OK).show();
                 
             }else{
-                new Alert(Alert.AlertType.ERROR, "Failed to save the Report", ButtonType.OK).show();
+                new Alert(Alert.AlertType.ERROR, "Failed to Save the Report", ButtonType.OK).show();
                 
             }
-            
-            
-            
-        } catch (Exception ex) {
-            Logger.getLogger(ReportFormController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            }catch (Exception ex) {
+            Logger.getLogger(AppointmentFormController.class.getName()).log(Level.SEVERE, null, ex);
+    }
     }
     
     private void loadReports(){
@@ -221,7 +223,48 @@ public class ReportFormController implements Initializable {
 
                
 private void deleteReports(){
+            ReportTM reporttm = tblReports.getSelectionModel().getSelectedItem();
+            String id = reporttm.getReport_ID();
+            
+            
+            try {
+               Boolean result = reportBO.deleteReport(id);
+               if(result){
+                   new Alert(Alert.AlertType.INFORMATION, "Report Has been Deleted Successfully", ButtonType.OK).show();
+                   
+               }else{
+                   new Alert(Alert.AlertType.ERROR, "Report Delete Failed!", ButtonType.OK).show();
+                   
+               }
+              
+            } catch (Exception ex) {
+                Logger.getLogger(ReportFormController.class.getName()).log(Level.SEVERE, null, ex);
+            }
 }
+
+    
+    
+    
+    
+    private void loadAppointments(){
+           ArrayList<String> appointmentArray = new ArrayList<>();
+        ArrayList<AppointmentDTO> appointments = new ArrayList<>();
+        try {
+            
+            appointments = appointmentBO.getAllAppointments();
+            
+            
+        } catch (Exception ex) {
+              Logger.getLogger(ReportFormController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        for (AppointmentDTO appointment : appointments){
+            appointmentArray.add(appointment.getAppointment_ID());
+            
+        }
+        
+        cmbAppointmentID.setItems(FXCollections.observableArrayList(appointmentArray));
+    }
        
     }
     

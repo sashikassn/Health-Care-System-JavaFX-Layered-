@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
@@ -45,5 +46,6 @@
       <JFXButton fx:id="btnGenerateReport" layoutX="310.0" layoutY="493.0" onAction="#onGenerateReportbtnClick" prefHeight="28.0" prefWidth="178.0" style="-fx-background-color: #00ff00;" text="generate Report" />
       <JFXButton fx:id="btnDeleteReport" layoutX="131.0" layoutY="223.0" onAction="#onDeletebtnClick" prefHeight="28.0" prefWidth="112.0" text="Delete Report" />
       <JFXTextField fx:id="txtAppointmentID" labelFloat="true" layoutX="258.0" layoutY="63.0" prefHeight="21.0" prefWidth="211.0" promptText="AppointmentID" />
+      <JFXComboBox fx:id="cmbAppointmentID" layoutX="488.0" layoutY="63.0" prefHeight="28.0" prefWidth="191.0" promptText="Appointment ID" />
    </children>
 </AnchorPane>
