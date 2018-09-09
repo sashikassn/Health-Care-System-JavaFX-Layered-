@@ -30,6 +30,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -38,9 +39,12 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import lk.ijse.hos.business.BOFactory;
 import lk.ijse.hos.business.custom.AppointmentBO;
+import lk.ijse.hos.business.custom.PatientBO;
 import lk.ijse.hos.business.custom.ReportBO;
 import lk.ijse.hos.dto.AppointmentDTO;
+import lk.ijse.hos.dto.PatientDTO;
 import lk.ijse.hos.dto.ReportDTO;
+import lk.ijse.hos.view.util.tblmodel.AppointmentTM;
 import lk.ijse.hos.view.util.tblmodel.ReportTM;
 
 /**
@@ -61,15 +65,9 @@ public class ReportFormController implements Initializable {
     @FXML
     private JFXButton btnDeleteReport;
     @FXML
-    private JFXTextField txtAppointmentID;
-    @FXML
-    private JFXTextField txtPatientID;
-    @FXML
     private JFXTextField txtReprtID;
     @FXML
     private JFXTextField txtDetails;
-    @FXML
-    private JFXTextField txtTreatments;
     @FXML
     private JFXDatePicker Datepicker;
     @FXML
@@ -84,6 +82,12 @@ public class ReportFormController implements Initializable {
     private JFXComboBox<String> cmbAppointmentID;
     
     AppointmentBO appointmentBO = (AppointmentBO) BOFactory.getInstace().getBO(BOFactory.BOType.AppointmentBO);
+    PatientBO patientBO = (PatientBO) BOFactory.getInstace().getBO(BOFactory.BOType.PatientBO);
+    
+    @FXML
+    private JFXComboBox<String> cmbPatientIDs;
+    @FXML
+    private TextArea txtTeatments;
    
 
     /**
@@ -100,7 +104,8 @@ public class ReportFormController implements Initializable {
         tblReports.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("Details"));
         tblReports.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("Treatments"));
         loadReports();
-        loadAppointments();
+        loadAppointmentIDs();
+        loadpatientIDs();
         
     }    
 
@@ -114,10 +119,11 @@ public class ReportFormController implements Initializable {
     @FXML
     private void onCancelBtnClick(ActionEvent event) {
         txtReprtID.setText("");
-        txtAppointmentID.setText("");
-        txtPatientID.setText("");
+        cmbPatientIDs.setValue(null);
         txtDetails.setText("");
-        txtTreatments.setText("");
+        txtTeatments.setText("");
+        cmbAppointmentID.setValue(null);
+        Datepicker.setValue(null);
         
         
     }
@@ -125,10 +131,10 @@ public class ReportFormController implements Initializable {
     @FXML
     private void onNewReportbtnClick(ActionEvent event) {
            txtReprtID.setText("");
-        txtAppointmentID.setText("");
-        txtPatientID.setText("");
+        cmbAppointmentID.setValue(null);
+        cmbPatientIDs.setValue(null);
         txtDetails.setText("");
-        txtTreatments.setText("");
+        txtTeatments.setText("");
     }
 
     @FXML
@@ -175,18 +181,18 @@ public class ReportFormController implements Initializable {
                 
             
                     String Report_ID = txtReprtID.getText();
-                    String Appointment_ID = txtAppointmentID.getText();
-                    String Patient_ID = txtPatientID.getText();
+                    String Appointment_ID = cmbAppointmentID.getValue();
+                    String Patient_ID = cmbPatientIDs.getValue();
                     LocalDate Date = Datepicker.getValue();
                     String Details = txtDetails.getText();
-                    String Treatments = txtTreatments.getText();
+                    String Treatments = txtTeatments.getText();
                    
         
         Date date = new Date();
         try {
             date = new SimpleDateFormat("yyyy-MM-dd").parse(Date.toString());
         } catch (ParseException ex) {
-            Logger.getLogger(AppointmentFormController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ReportFormController.class.getName()).log(Level.SEVERE, null, ex);
         }
             ReportDTO reportDTO = new ReportDTO(Report_ID, Appointment_ID, Patient_ID, date, Details, Treatments);
             
@@ -201,18 +207,18 @@ public class ReportFormController implements Initializable {
                 
             }
             }catch (Exception ex) {
-            Logger.getLogger(AppointmentFormController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ReportFormController.class.getName()).log(Level.SEVERE, null, ex);
     }
     }
     
     private void loadReports(){
-         try {
+            try {
             ArrayList<ReportDTO> AllReports = reportBO.getallReports();
             ArrayList<ReportTM> addReports = new ArrayList<>();
             for (ReportDTO AllReport : AllReports) {
-                ReportTM report = new ReportTM(AllReport.getReport_ID(), AllReport.getAppointment_ID(), AllReport.getPatient_ID(), AllReport.getDate(), AllReport.getDetails(), AllReport.getTreatments());
+                ReportTM report = new ReportTM(AllReport.getReport_ID(),AllReport.getAppointment_ID(), AllReport.getPatient_ID(), AllReport.getDate(), AllReport.getDetails(), AllReport.getTreatments());
                 
-                
+                addReports.add(report);
             }
             tblReports.setItems(FXCollections.observableArrayList(addReports));
             
@@ -246,7 +252,7 @@ private void deleteReports(){
     
     
     
-    private void loadAppointments(){
+    private void loadAppointmentIDs(){
            ArrayList<String> appointmentArray = new ArrayList<>();
         ArrayList<AppointmentDTO> appointments = new ArrayList<>();
         try {
@@ -264,6 +270,28 @@ private void deleteReports(){
         }
         
         cmbAppointmentID.setItems(FXCollections.observableArrayList(appointmentArray));
+    }
+    
+    
+    
+    private void loadpatientIDs(){
+         ArrayList<String> patientarray = new ArrayList<>();
+        ArrayList<PatientDTO> patients = new ArrayList<>();
+        try {
+            
+            patients = patientBO.getallpatients();
+            
+            
+        } catch (Exception ex) {
+              Logger.getLogger(ReportFormController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        for (PatientDTO patient : patients){
+            patientarray.add(patient.getPatient_ID());
+            
+        }
+        
+        cmbPatientIDs.setItems(FXCollections.observableArrayList(patientarray));
     }
        
     }
