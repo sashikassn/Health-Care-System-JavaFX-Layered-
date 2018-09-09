@@ -44,7 +44,6 @@ import lk.ijse.hos.business.custom.ReportBO;
 import lk.ijse.hos.dto.AppointmentDTO;
 import lk.ijse.hos.dto.PatientDTO;
 import lk.ijse.hos.dto.ReportDTO;
-import lk.ijse.hos.view.util.tblmodel.AppointmentTM;
 import lk.ijse.hos.view.util.tblmodel.ReportTM;
 
 /**
@@ -171,6 +170,9 @@ public class ReportFormController implements Initializable {
 
     @FXML
     private void onDeletebtnClick(ActionEvent event) {
+        deleteReports();
+        loadReports();
+        
         
     }
     

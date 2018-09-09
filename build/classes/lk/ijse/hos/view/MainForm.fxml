@@ -1,40 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="root" prefHeight="448.0" prefWidth="751.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hos.controller.MainFormController">
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="422.0" prefWidth="793.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hos.controller.MainFormController">
     <stylesheets>
         <URL value="@/lk/ijse/hos/view/style/mainform.css" />
     </stylesheets>
    <children>
-      <Label layoutX="275.0" layoutY="31.0" prefHeight="16.0" prefWidth="296.0" text="Hospital Management System" />
-      <ImageView fx:id="imgDoc" fitHeight="146.0" fitWidth="139.0" layoutX="27.0" layoutY="134.0" onMouseClicked="#OnMouseClick" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="459.0" fitWidth="793.0" opacity="0.28" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../assest/wallpaper2you_298165.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="4.0" layoutY="15.0" prefHeight="54.0" prefWidth="342.0" text="Hospital Management System" textFill="#1aa3ff">
+         <font>
+            <Font name="Noto Sans Mono Bold" size="21.0" />
+         </font></Label>
+      <ImageView fx:id="imgDoc" fitHeight="85.0" fitWidth="99.0" layoutX="26.0" layoutY="96.0" onMouseClicked="#OnMouseClick" onMouseEntered="#MouseEnterAnim" onMouseExited="#MouseExitAnim" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assest/doctor%20(2).png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgPatient" fitHeight="146.0" fitWidth="139.0" layoutX="385.0" layoutY="134.0" onMouseClicked="#OnMouseClick" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgPatient" fitHeight="85.0" fitWidth="99.0" layoutX="26.0" layoutY="202.0" onMouseClicked="#OnMouseClick" onMouseEntered="#MouseEnterAnim" onMouseExited="#MouseExitAnim" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assest/patient.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgReport" fitHeight="146.0" fitWidth="139.0" layoutX="583.0" layoutY="134.0" onMouseClicked="#OnMouseClick" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgReport" fitHeight="85.0" fitWidth="99.0" layoutX="26.0" layoutY="309.0" onMouseClicked="#OnMouseClick" onMouseEntered="#MouseEnterAnim" onMouseExited="#MouseExitAnim" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assest/clipboard%20(1).png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgAppointment" fitHeight="146.0" fitWidth="139.0" layoutX="212.0" layoutY="134.0" onMouseClicked="#OnMouseClick" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgAppointment" fitHeight="133.0" fitWidth="116.0" layoutX="533.0" layoutY="130.0" onMouseClicked="#OnMouseClick" onMouseEntered="#MouseEnterAnimSpecial" onMouseExited="#MouseExitAnimSpecial" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assest/blood.png" />
+            <Image url="@../assest/icons8-treatment-128.png" />
          </image>
       </ImageView>
-      <Label layoutX="54.0" layoutY="311.0" prefHeight="16.0" prefWidth="99.0" text="Manage Doctor" />
-      <Label layoutX="244.0" layoutY="319.0" prefHeight="16.0" prefWidth="99.0" text="Manage Appointments" />
-      <Label layoutX="405.0" layoutY="311.0" prefHeight="16.0" prefWidth="99.0" text="Manage patients" />
-      <Label layoutX="603.0" layoutY="311.0" prefHeight="16.0" prefWidth="99.0" text="Manage Reports" />
+      <Label layoutX="123.0" layoutY="130.0" prefHeight="25.0" prefWidth="170.0" text="Manage Doctors">
+         <font>
+            <Font name="Noto Sans Mono Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="485.0" layoutY="267.0" prefHeight="32.0" prefWidth="230.0" text="New Appointment*" textFill="#7e0e8d">
+         <font>
+            <Font name="Noto Sans Mono Bold" size="21.0" />
+         </font></Label>
+      <Separator layoutX="-6.0" layoutY="81.0" prefHeight="4.0" prefWidth="799.0" />
+      <Label layoutX="507.0" layoutY="15.0" prefHeight="23.0" prefWidth="200.0" text="Welcome Administrator !" textFill="#5749f2">
+         <font>
+            <Font name="Noto Sans Mono Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtDate" layoutX="508.0" layoutY="47.0" prefHeight="23.0" prefWidth="269.0" text="Date" textFill="#1d1e75">
+         <font>
+            <Font name="Noto Sans Mono Bold" size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnSignOut" layoutX="708.0" layoutY="13.0" mnemonicParsing="false" onAction="#onSignOutBtnClick" prefHeight="28.0" prefWidth="71.0" style="-fx-background-color: #d1e0e0;" text="signout">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
+      <Separator layoutX="425.0" layoutY="96.0" orientation="VERTICAL" prefHeight="313.0" prefWidth="6.0" />
+      <Label layoutX="123.0" layoutY="232.0" prefHeight="25.0" prefWidth="170.0" text="Manage Patients">
+         <font>
+            <Font name="Noto Sans Mono Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="123.0" layoutY="339.0" prefHeight="25.0" prefWidth="170.0" text="Manage Reports">
+         <font>
+            <Font name="Noto Sans Mono Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="281.0" layoutY="436.0" prefHeight="18.0" prefWidth="291.0" text="Copyright 2018 SlashDeVs' . All rights Reserved">
+         <font>
+            <Font name="Droid Sans Tamil Bold" size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtappointDesc" layoutX="478.0" layoutY="300.0" prefHeight="18.0" prefWidth="283.0">
+         <font>
+            <Font name="Droid Sans Tamil Bold" size="11.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

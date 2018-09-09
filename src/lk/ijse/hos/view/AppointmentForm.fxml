@@ -10,18 +10,32 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" fx:id="root" prefHeight="522.0" prefWidth="676.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hos.controller.AppointmentFormController">
     <stylesheets>
         <URL value="@/lk/ijse/hos/view/style/appointmentform.css" />
     </stylesheets>
    <children>
-      <JFXTextField fx:id="txtAppoID" labelFloat="true" layoutX="31.0" layoutY="88.0" prefHeight="27.0" prefWidth="254.0" promptText="Appointment ID" />
-      <JFXTextField fx:id="txtDocID" labelFloat="true" layoutX="31.0" layoutY="137.0" prefHeight="28.0" prefWidth="254.0" promptText="Doctor ID" />
-      <JFXTextField fx:id="txtpatientID" labelFloat="true" layoutX="31.0" layoutY="194.0" prefHeight="28.0" prefWidth="254.0" promptText="Patient ID" />
-      <JFXButton fx:id="btnMakeAppo" layoutX="338.0" layoutY="243.0" onAction="#OnMakeAppoClick" prefHeight="37.0" prefWidth="145.0" text="Make Appointment" />
-      <JFXButton fx:id="btnCancel" layoutX="499.0" layoutY="243.0" onAction="#OnBtnCancelClick" prefHeight="37.0" prefWidth="132.0" text="Cancel" />
-      <Label layoutX="273.0" layoutY="54.0" prefHeight="3.0" prefWidth="197.0" text="Appointments" />
+      <ImageView fitHeight="359.0" fitWidth="676.0" opacity="0.35" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../assest/2a501fd2c80949357bd741e6dd085f12.jpg" />
+         </image>
+      </ImageView>
+      <JFXTextField fx:id="txtAppoID" labelFloat="true" layoutX="31.0" layoutY="88.0" prefHeight="27.0" prefWidth="254.0" promptText="Appointment ID">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtDocID" labelFloat="true" layoutX="31.0" layoutY="137.0" prefHeight="28.0" prefWidth="254.0" promptText="Doctor ID">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtpatientID" labelFloat="true" layoutX="31.0" layoutY="194.0" prefHeight="28.0" prefWidth="254.0" promptText="Patient ID">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXTextField>
+      <JFXButton fx:id="btnMakeAppo" layoutX="311.0" layoutY="243.0" onAction="#OnMakeAppoClick" prefHeight="37.0" prefWidth="154.0" style="-fx-background-color: #99ccff;" text="Make Appointment" />
+      <JFXButton fx:id="btnCancel" layoutX="482.0" layoutY="243.0" onAction="#OnBtnCancelClick" prefHeight="37.0" prefWidth="154.0" style="-fx-background-color: #ff8080;" text="Cancel" />
       <ImageView fx:id="navigateHome" fitHeight="60.0" fitWidth="58.0" layoutX="602.0" layoutY="14.0" onMouseClicked="#OnHomeImgClick" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assest/home-icon.png" />
@@ -36,6 +50,14 @@
         </columns>
       </TableView>
       <JFXDatePicker fx:id="DatePicker" layoutX="28.0" layoutY="247.0" prefHeight="28.0" prefWidth="260.0" />
-      <JFXButton fx:id="btnNewAppo" layoutX="338.0" layoutY="84.0" onAction="#OnNewAppoClick" prefHeight="37.0" prefWidth="221.0" text="New Appointment" />
+      <JFXButton fx:id="btnNewAppo" layoutX="311.0" layoutY="88.0" onAction="#OnNewAppoClick" prefHeight="28.0" prefWidth="145.0" style="-fx-background-color: #80d4ff;" text="New Appointment*">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></JFXButton>
+      <Label layoutX="31.0" layoutY="4.0" prefHeight="45.0" prefWidth="273.0" text="Manage Appointments" textFill="#104f79">
+         <font>
+            <Font name="Noto Sans Mono Bold" size="23.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
