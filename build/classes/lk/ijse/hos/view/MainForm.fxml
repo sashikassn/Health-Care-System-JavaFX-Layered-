@@ -23,17 +23,17 @@
          <font>
             <Font name="Noto Sans Mono Bold" size="21.0" />
          </font></Label>
-      <ImageView fx:id="imgDoc" fitHeight="85.0" fitWidth="99.0" layoutX="26.0" layoutY="96.0" onMouseClicked="#OnMouseClick" onMouseEntered="#MouseEnterAnim" onMouseExited="#MouseExitAnim" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgDoc" fitHeight="85.0" fitWidth="99.0" layoutX="208.0" layoutY="96.0" onMouseClicked="#OnMouseClick" onMouseEntered="#MouseEnterAnim" onMouseExited="#MouseExitAnim" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assest/doctor%20(2).png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgPatient" fitHeight="85.0" fitWidth="99.0" layoutX="26.0" layoutY="202.0" onMouseClicked="#OnMouseClick" onMouseEntered="#MouseEnterAnim" onMouseExited="#MouseExitAnim" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgPatient" fitHeight="85.0" fitWidth="99.0" layoutX="208.0" layoutY="204.0" onMouseClicked="#OnMouseClick" onMouseEntered="#MouseEnterAnim" onMouseExited="#MouseExitAnim" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assest/patient.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgReport" fitHeight="85.0" fitWidth="99.0" layoutX="26.0" layoutY="309.0" onMouseClicked="#OnMouseClick" onMouseEntered="#MouseEnterAnim" onMouseExited="#MouseExitAnim" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgReport" fitHeight="85.0" fitWidth="99.0" layoutX="208.0" layoutY="309.0" onMouseClicked="#OnMouseClick" onMouseEntered="#MouseEnterAnim" onMouseExited="#MouseExitAnim" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assest/clipboard%20(1).png" />
          </image>
@@ -43,7 +43,7 @@
             <Image url="@../assest/icons8-treatment-128.png" />
          </image>
       </ImageView>
-      <Label layoutX="123.0" layoutY="130.0" prefHeight="25.0" prefWidth="170.0" text="Manage Doctors">
+      <Label layoutX="26.0" layoutY="130.0" prefHeight="25.0" prefWidth="170.0" text="Manage Doctors">
          <font>
             <Font name="Noto Sans Mono Bold" size="18.0" />
          </font></Label>
@@ -68,12 +68,12 @@
          </font>
       </Button>
       <Separator layoutX="425.0" layoutY="96.0" orientation="VERTICAL" prefHeight="313.0" prefWidth="6.0" />
-      <Label layoutX="123.0" layoutY="232.0" prefHeight="25.0" prefWidth="170.0" text="Manage Patients">
+      <Label layoutX="26.0" layoutY="232.0" prefHeight="25.0" prefWidth="170.0" text="Manage Patients">
          <font>
             <Font name="Noto Sans Mono Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="123.0" layoutY="339.0" prefHeight="25.0" prefWidth="170.0" text="Manage Reports">
+      <Label layoutX="26.0" layoutY="339.0" prefHeight="25.0" prefWidth="170.0" text="Manage Reports">
          <font>
             <Font name="Noto Sans Mono Bold" size="18.0" />
          </font>
@@ -83,7 +83,7 @@
             <Font name="Droid Sans Tamil Bold" size="11.0" />
          </font>
       </Label>
-      <Label fx:id="txtappointDesc" layoutX="478.0" layoutY="300.0" prefHeight="18.0" prefWidth="283.0">
+      <Label fx:id="txtappointDesc" layoutX="486.0" layoutY="300.0" prefHeight="18.0" prefWidth="283.0">
          <font>
             <Font name="Droid Sans Tamil Bold" size="11.0" />
          </font>

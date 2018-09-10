@@ -37,6 +37,7 @@ public class StartUp extends Application{
             primaryStage.setResizable(false);
             primaryStage.setMaximized(false);
             primaryStage.show();
+            primaryStage.setMaximized(false);
            
 
         } catch (IOException ex) {
