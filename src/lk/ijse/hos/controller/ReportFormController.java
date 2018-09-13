@@ -10,12 +10,15 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,10 +44,14 @@ import lk.ijse.hos.business.BOFactory;
 import lk.ijse.hos.business.custom.AppointmentBO;
 import lk.ijse.hos.business.custom.PatientBO;
 import lk.ijse.hos.business.custom.ReportBO;
+import lk.ijse.hos.db.DBConnection;
 import lk.ijse.hos.dto.AppointmentDTO;
 import lk.ijse.hos.dto.PatientDTO;
 import lk.ijse.hos.dto.ReportDTO;
 import lk.ijse.hos.view.util.tblmodel.ReportTM;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  * FXML Controller class
@@ -166,6 +173,18 @@ public class ReportFormController implements Initializable {
 
     @FXML
     private void onGenerateReportbtnClick(ActionEvent event) {
+        try {
+            HashMap map = new HashMap();
+            map.put("reportID", tblReports.getSelectionModel().getSelectedItem().getReport_ID());
+            InputStream stm = getClass().getResourceAsStream("/lk/ijse/hos/Report/Hospital-MedialReport.jasper");
+            JasperPrint jasp = JasperFillManager.fillReport(stm,map,DBConnection.getInstance().getConnection());
+            JasperViewer.viewReport(jasp,false);
+            
+            
+            
+        } catch (Exception ex) {
+            Logger.getLogger(ReportFormController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
