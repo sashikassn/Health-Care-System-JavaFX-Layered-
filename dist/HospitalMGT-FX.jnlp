@@ -8,9 +8,23 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="HospitalMGT-FX.jar" size="5478511" download="eager" />
+    <jar href="HospitalMGT-FX.jar" size="5498313" download="eager" />
+    <jar href="lib/com.lowagie.text-2.1.7.jar" size="1782376" download="eager" />
+    <jar href="lib/commons-beanutils-1.8.3.jar" size="232019" download="eager" />
+    <jar href="lib/commons-digester-2.1.jar" size="196768" download="eager" />
+    <jar href="lib/dk-monokai-142.jar" size="3765" download="eager" />
+    <jar href="lib/itext-2.1.7-src.jar" size="1467753" download="eager" />
+    <jar href="lib/itextpdf-5.3.4.jar" size="1810038" download="eager" />
+    <jar href="lib/jasperreports-6.4.3.jar" size="5487044" download="eager" />
+    <jar href="lib/jasperreports-fonts-6.4.3.jar" size="2478076" download="eager" />
+    <jar href="lib/jasperreports-javaflow-6.4.3.jar" size="5552476" download="eager" />
+    <jar href="lib/jcommon-1.0.8.jar" size="310890" download="eager" />
     <jar href="lib/jfoenix.jar" size="2401594" download="eager" />
+    <jar href="lib/jfreechart-1.0.13.jar" size="1425742" download="eager" />
     <jar href="lib/mysql-connector-java-5.1.42-bin.jar" size="996444" download="eager" />
+    <jar href="lib/org-apache-commons-logging.jar" size="60786" download="eager" />
+    <jar href="lib/org.apache.commons.collections.jar" size="571259" download="eager" />
+    <jar href="lib/scenicView.jar" size="524264" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="HospitalMGT-FX" >
     <param name="requiredFXVersion" value="8.0+"/>

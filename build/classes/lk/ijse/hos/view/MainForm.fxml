@@ -19,9 +19,9 @@
             <Image url="@../assest/wallpaper2you_298165.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="4.0" layoutY="15.0" prefHeight="54.0" prefWidth="342.0" text="Hospital Management System" textFill="#1aa3ff">
+      <Label layoutX="11.0" layoutY="14.0" prefHeight="54.0" prefWidth="377.0" text="HealthCare Info-System" textFill="#0c5e94">
          <font>
-            <Font name="Noto Sans Mono Bold" size="21.0" />
+            <Font name="Noto Sans Mono Bold" size="27.0" />
          </font></Label>
       <ImageView fx:id="imgDoc" fitHeight="85.0" fitWidth="99.0" layoutX="208.0" layoutY="96.0" onMouseClicked="#OnMouseClick" onMouseEntered="#MouseEnterAnim" onMouseExited="#MouseExitAnim" pickOnBounds="true" preserveRatio="true">
          <image>
