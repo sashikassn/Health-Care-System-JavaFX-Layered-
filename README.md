@@ -1,4 +1,4 @@
-# Health-care-System-JavaFX-Layered-
+# Health-care-System-JavaFX-Layered-Standalone
 **A system which can manage a health Care center.**
 
 
@@ -8,3 +8,5 @@ Technology Stack:- Java FX,MySQL
 
 
 **Design Patterns:-Singleton,Facade,Factory,Strategy,DTO,DAO**
+
+
